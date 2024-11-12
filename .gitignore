@@ -1,0 +1,7 @@
+# eclipse #
+.externalToolBuilders
+.mvn/
+.settings
+target/
+.classpath
+.project

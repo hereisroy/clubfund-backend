@@ -1,0 +1,21 @@
+services:
+ api:
+  build:
+   context: .
+   dockerfile: Dockerfile
+  environment:
+  - CLUB_FUND_DB_HOST=clubfund-db
+  - CLUB_FUND_DB_USER=root
+  - CLUB_FUND_DB_PWD=pwd8910
+  ports:
+  - 8080:8080 
+  depends_on:
+  - clubfund-db
+ clubfund-db:
+  image: mysql:8.3
+  environment: 
+  - MYSQL_ROOT_PASSWORD=pwd8910
+  - MYSQL_DATABASE=clubfund
+  - MYSQL_INITDB_SKIP_TZINFO=SKIP
+  volumes:
+  - /var/volumes/clubfund-db-data:/var/lib/mysql
